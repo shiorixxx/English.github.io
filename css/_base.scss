@@ -1,0 +1,54 @@
+@use "config/fonts" as f;
+@use "config/responsive" as r;
+@use "common" as c;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  font-weight: 400;
+  height: 1.6;
+  color: c.$text-color;
+  font-family: "游ゴシック体", "YuGothic", "Yu Gothic", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: 1.6rem;
+}
+.wrapper {
+  max-width: 860px;
+  text-align: center;
+  margin: 0 auto;
+
+  @include r.mq(sp) {
+    padding: 0 3%;
+  }
+}
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 80px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    display: inline-block;
+    width: 100px;
+    height: 3px;
+    transform: translateX(-50%);
+    background-color: c.$text-color;
+    border-radius: 2px;
+  }
+}

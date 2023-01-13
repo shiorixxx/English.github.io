@@ -1,0 +1,85 @@
+/* Main Visualのフェードイン、フェードアウト */
+@use "config/fonts" as f;
+@use "config/responsive" as r;
+@use "common" as c;
+
+#slider {
+  position: relative;
+  width: 74%;
+  height: 720px;
+  margin: 0 0 63px auto;
+  overflow: hidden;
+
+  @include r.mq(sp) {
+    height: 375px;
+    width: 100%;
+    margin-bottom: 300px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 0 20px 20px #fff;
+    @include r.mq(sp) {
+      box-shadow: inset 0 0 20px 20px #fff;
+    }
+  }
+}
+
+#slider img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: 3s;
+  width: 100%;
+  height: 720px; //高さが必要
+  object-fit: cover;
+}
+#slider img.show {
+  opacity: 1;
+}
+.mainvisual-textarea {
+  position: absolute;
+  top: 280px;
+  left: 10%;
+  @include r.mq(sp) {
+    top: 480px;
+  }
+  p {
+    font-size: 3.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  .mainvisual-btn {
+    width: 300px;
+    background: c.$base-color;
+    padding: 16px 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    position: relative;
+
+    @include r.mq(sp) {
+      width: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 30px;
+      width: 11px;
+      height: 11px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: rotate(45deg);
+    }
+  }
+}

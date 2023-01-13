@@ -1,0 +1,40 @@
+@use "config/fonts" as f;
+@use "config/responsive" as r;
+@use "common" as c;
+
+.footer {
+  background-color: #e8e8e8;
+  padding: 62px 0 16px;
+  text-align: center;
+
+  .footer-items {
+    display: flex;
+    align-items: top;
+    margin-bottom: 65px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include r.mq(sp) {
+      justify-content: center;
+    }
+    .footer-item {
+      @include r.mq(sp) {
+        width: calc(100% / 2 - 10px);
+
+        &:nth-child(-n + 2) {
+          margin-bottom: 10px;
+        }
+      }
+
+      dt {
+        margin-bottom: 16px;
+      }
+      dd {
+        &:last-child {
+          margin-bottom: 0;
+        }
+        margin-bottom: 6px;
+      }
+    }
+  }
+}

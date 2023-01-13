@@ -1,0 +1,84 @@
+@use "config/fonts" as f;
+@use "config/responsive" as r;
+@use "common" as c;
+
+.review {
+  .reviewItem {
+    display: flex;
+    margin-bottom: 80px;
+    @include r.mq(sp) {
+      flex-direction: column-reverse;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      @include r.mq(sp) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  .icon-area {
+    .icon-img {
+      background-color: #cccccc;
+      border-radius: 50%;
+      width: 120px;
+
+      @include r.mq(sp) {
+        margin: 0 auto;
+      }
+
+      img {
+        object-fit: cover;
+        width: 120px;
+        height: 120px;
+      }
+      span {
+        display: block;
+      }
+    }
+    .student-name {
+      display: inline-block;
+      margin-top: 10px;
+    }
+  }
+  .left-area {
+    margin-left: 10px;
+  }
+  .right-area {
+    margin-right: 10px;
+  }
+  .text-area {
+    width: 60%;
+    @include r.mq(sp) {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .text {
+      background-color: #e9f1fb;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.68;
+      text-align: left;
+      padding: 20px;
+      font-size: 1.6rem;
+
+      @include r.mq(sp) {
+        width: 100%;
+      }
+    }
+  }
+
+  // フェードインアニメーション-----------
+  .scale {
+    opacity: 0;
+    transform: scale(0);
+    transition-duration: 500ms;
+    transition-property: opacity, transform;
+  }
+  .scroll-scale {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
